@@ -13,7 +13,7 @@
             align-items: center;
         }
 
-        .container {
+        form {
             padding: 20px;
             border: 2px solid black;
             border-radius: 10px;
@@ -40,46 +40,54 @@
 </head>
 <body>
     <section>
-        <div class="container">
+        <form method="post" onsubmit="return oddeven();">
             <div class="header">
                 <h3>PROGRAM MENENTUKAN BILANGAN</h3>
                 <hr>
             </div>
             <div class="input">
                 <h4>Masukkan sebuah bilangan bulat : </h4>
-                <input type="number" name="input" id="input" min="0" required autofocus autocomplete="off">
-                <input type="submit" value="GO" onclick="calc();"></input>
+                    <input type="number" name="input" id="input" min="0" required autofocus autocomplete="off">
+                    <input type="submit" value="GO"></input>
             </div>
             <div class="result">
                 <hr>
                 <h4>Kesimpulan : </h4>
                 <textarea name="result" id="result" cols="30" rows="5"></textarea>
             </div>
-        </div>
+        </form>
     </section>
 
     
     <script>
-        function calc() {
+        function oddeven() {
 
             let input = document.getElementById("input").value;
+            let hasil = document.getElementById("result");
+            let text;
 
+            // if(input == "" ) {
+                
+            //     text = "";
+            //     return true;
+
+            // } else 
             if (input % 2 == 0) {
 
-                document.getElementById("result").innerHTML = "Bilangan yang diinputkan termasuk bilangan genap";
+                text = "Bilangan yang diinputkan termasuk bilangan genap";
 
             } else {
 
-                document.getElementById("result").innerHTML = "Bilangan yang diinputkan termasuk bilangan ganjil";
+                text = "Bilangan yang diinputkan termasuk bilangan ganjil";
 
-            }  
+            }
+            
+            hasil.innerHTML = text;
+
+            return false;
         }
 
-        input.onkeydown = function(e){
-            if(e.keyCode == 13){
-                calc();
-            }
-        };
+        
     </script>
 </body>
 </html>
